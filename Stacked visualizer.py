@@ -4,10 +4,10 @@ from graphics import *
 import util
 import time
 #This is the list of evens that are pruned in the data
-EVENS = util.load("nevens.dat")
-EVENSLIST= list(EVENS[1])
-
-TEXT_SIZE = 16
+# EVENS = util.load("nevens.dat")
+# EVENSLIST= list(EVENS[1])
+EVENSLIST = util.loadOldEvens("3x41.json")
+TEXT_SIZE = 28
 
 #draws a given visTree in a window of a given width and height and a given border on the sides and top
 def drawTree(tree, width, height, border):
@@ -17,6 +17,7 @@ def drawTree(tree, width, height, border):
     nodesPositionList = []
     #iterate through the nodes by their row and position in the row
     for row in range(tree.getHeight()):
+        print("Drawing row: " + str(row))
         spacer = 1
         if len(tree.getLayers()[row])-1 !=0:
             #spaces the tree out so it is centered, avoiding a divide by 0
@@ -54,17 +55,15 @@ def drawTree(tree, width, height, border):
     # Convert from eps format to gif format using PIL
     from PIL import Image as NewImage
     img = NewImage.open("image.eps")
-    img.save("blank.gif", "gif")
+    img.save("3x20.gif", "gif")
 
     print("saved")
     # time.sleep(1000)
-    # win.getKey()
-    # win.getKey()
-    # win.getKey()
-    # win.getKey()
+    win.getKey()
 
 
-tree = visTree(5, 12)
+
+tree = visTree(3, 20)
 treeLayers = tree.getLayers()
-drawTree(tree, 6000, 3000, 100)
+drawTree(tree, 5000, 2500, 100)
 # drawTree(tree, 1400, 800, 20)

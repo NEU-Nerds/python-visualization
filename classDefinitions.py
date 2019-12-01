@@ -1,7 +1,8 @@
 import util
 #This is the list of evens that are pruned in the data
-EVENS = util.load("nevens.dat")
-EVENSLIST= list(EVENS[1])
+# EVENS = util.load("nevens.dat")
+# EVENSLIST= list(EVENS[1])
+EVENSLIST = util.loadOldEvens("3x41.json")
 
 #This defines a class that represents 1 node in a visualizer tree
 #With 2 fields, the value of the node, and whatever the parent node is
@@ -38,7 +39,7 @@ class visNode:
             rep+=pathTemp[x]/(10**x)
         return rep
 
-#This defines a tree that 
+#This defines a tree that
 class visTree:
     m = 0
     n = 0
@@ -79,4 +80,3 @@ class visTree:
         for node in self.nodes:
             layers[node.getHeight()-1].append(node)
         return layers
-
