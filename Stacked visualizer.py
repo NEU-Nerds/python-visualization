@@ -2,11 +2,12 @@ from classDefinitions import *
 from graphics import *
 
 import util
+import time
 #This is the list of evens that are pruned in the data
 EVENS = util.load("nevens.dat")
 EVENSLIST= list(EVENS[1])
 
-TEXT_SIZE = 12
+TEXT_SIZE = 16
 
 #draws a given visTree in a window of a given width and height and a given border on the sides and top
 def drawTree(tree, width, height, border):
@@ -46,9 +47,24 @@ def drawTree(tree, width, height, border):
         p2 = nodesPositionList[nodesList.index(nodesList[node].parentNode)][1]
         lineTemp = Line(p1, p2)
         lineTemp.draw(win)
-    
 
-tree = visTree(5, 7)
+    # saves the current TKinter object in postscript format
+    win.postscript(file="image.eps", colormode='color')
+
+    # Convert from eps format to gif format using PIL
+    from PIL import Image as NewImage
+    img = NewImage.open("image.eps")
+    img.save("blank.gif", "gif")
+
+    print("saved")
+    # time.sleep(1000)
+    # win.getKey()
+    # win.getKey()
+    # win.getKey()
+    # win.getKey()
+
+
+tree = visTree(5, 12)
 treeLayers = tree.getLayers()
-drawTree(tree, 1950, 1000, 100)
-
+drawTree(tree, 6000, 3000, 100)
+# drawTree(tree, 1400, 800, 20)
