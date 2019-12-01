@@ -2,7 +2,7 @@ import util
 #This is the list of evens that are pruned in the data
 # EVENS = util.load("nevens.dat")
 # EVENSLIST= list(EVENS[1])
-EVENSLIST = util.loadOldEvens("3x41.json")
+EVENSLIST = util.loadOldEvens("4x31.json")
 
 #This defines a class that represents 1 node in a visualizer tree
 #With 2 fields, the value of the node, and whatever the parent node is

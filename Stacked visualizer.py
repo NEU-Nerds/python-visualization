@@ -6,7 +6,7 @@ import time
 #This is the list of evens that are pruned in the data
 # EVENS = util.load("nevens.dat")
 # EVENSLIST= list(EVENS[1])
-EVENSLIST = util.loadOldEvens("3x41.json")
+EVENSLIST = util.loadOldEvens("4x31.json")
 TEXT_SIZE = 28
 
 #draws a given visTree in a window of a given width and height and a given border on the sides and top
@@ -55,7 +55,7 @@ def drawTree(tree, width, height, border):
     # Convert from eps format to gif format using PIL
     from PIL import Image as NewImage
     img = NewImage.open("image.eps")
-    img.save("3x20.gif", "gif")
+    img.save("4x15.gif", "gif")
 
     print("saved")
     # time.sleep(1000)
@@ -63,7 +63,7 @@ def drawTree(tree, width, height, border):
 
 
 
-tree = visTree(3, 20)
+tree = visTree(4, 15)
 treeLayers = tree.getLayers()
 drawTree(tree, 5000, 2500, 100)
 # drawTree(tree, 1400, 800, 20)
