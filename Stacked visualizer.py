@@ -16,12 +16,17 @@ def drawTree(tree, width, height, border):
     nodesList = []
     nodesPositionList = []
     #iterate through the nodes by their row and position in the row
+    count = 0
     for row in range(tree.getHeight()):
         print("Drawing row: " + str(row))
         spacer = 1
         if len(tree.getLayers()[row])-1 !=0:
             #spaces the tree out so it is centered, avoiding a divide by 0
-            spacer = len(tree.getLayers()[row])-1
+            # spacer = len(tree.getLayers()[row])-1
+            #spaces tree out so it is monospaced left justified
+            spacer = len(tree.getLayers()[-1])-1
+        print("num nodes: " + str(len(tree.getLayers()[row])))
+        count += 1
         for node in range(len(tree.getLayers()[row])):
             #identify the point where the node goes
             pointTemp = Point(border + node * (width - 2 * border) / (spacer),
@@ -55,7 +60,7 @@ def drawTree(tree, width, height, border):
     # Convert from eps format to gif format using PIL
     from PIL import Image as NewImage
     img = NewImage.open("image.eps")
-    img.save("4x15.gif", "gif")
+    img.save("3x18.gif", "gif")
 
     print("saved")
     # time.sleep(1000)
@@ -63,7 +68,7 @@ def drawTree(tree, width, height, border):
 
 
 
-tree = visTree(4, 15)
+tree = visTree(3, 18)
 treeLayers = tree.getLayers()
-drawTree(tree, 5000, 2500, 100)
-# drawTree(tree, 1400, 800, 20)
+# drawTree(tree, 5000, 2500, 100)
+drawTree(tree, 16000, 4000, 20)
