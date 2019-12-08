@@ -64,7 +64,7 @@ def drawTree(tree, width, height, border):
 
 
 
-tree = visTree(3, 8)
+tree = visTree(3, 32)
 # treeLayers = tree.getLayers()
 drawTree(tree, 1900, 750, 100)
 # drawTree(tree, 16000, 4000, 20)

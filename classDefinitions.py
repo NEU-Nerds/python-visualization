@@ -38,11 +38,11 @@ class visNode:
 
     #returns a numerical representation of the node (really only used for sorting the tree of nodes)
     def __getNumberRep__ (self):
-        rep = 10*self.getHeight()
+        rep = str(self.getHeight())
         pathTemp = self.getPath()
         for x in range(self.getHeight()):
-            rep+=pathTemp[x]/(10**x)
-        return rep
+            rep += str(pathTemp[x])
+        return int(rep)
 
 #This defines a tree that
 class visTree:
