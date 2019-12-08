@@ -3,11 +3,7 @@ from graphics import *
 
 import util
 import time
-#This is the list of evens that are pruned in the data
-# EVENS = util.load("nevens.dat")
-# EVENSLIST= list(EVENS[1])
-EVENSLIST = util.loadOldEvens("4x31.json")
-TEXT_SIZE = 28
+TEXT_SIZE = 8
 
 #draws a given visTree in a window of a given width and height and a given border on the sides and top
 def drawTree(tree, width, height, border):
@@ -37,7 +33,7 @@ def drawTree(tree, width, height, border):
             textTemp.setSize(TEXT_SIZE)
             textTemp.draw(win)
             #make it red if even
-            if tuple(tree.getLayers()[row][node].getPath()) in EVENSLIST:
+            if tree.getLayers()[row][node].isEven:
                 textTemp.setFill("red")
             #update the list of nodes + positions for use when drawing lines
             nodesPositionList.append([tree.getLayers()[row][node], pointTemp])
@@ -68,7 +64,7 @@ def drawTree(tree, width, height, border):
 
 
 
-tree = visTree(3, 18)
-treeLayers = tree.getLayers()
-# drawTree(tree, 5000, 2500, 100)
-drawTree(tree, 16000, 4000, 20)
+tree = visTree(3, 8)
+# treeLayers = tree.getLayers()
+drawTree(tree, 1900, 750, 100)
+# drawTree(tree, 16000, 4000, 20)

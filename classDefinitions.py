@@ -5,18 +5,23 @@ import util
 EVENSLIST = util.loadOldEvens("4x31.json")
 
 #This defines a class that represents 1 node in a visualizer tree
-#With 2 fields, the value of the node, and whatever the parent node is
+#With 3 fields, the value of the node, whatever the parent node is, and if the node is even
 #if the node has no parent, then it's parentNode is None
 
 class visNode:
     value = None
     parentNode = None
+    isEven = None
 
     #Constructor, creates a node that has a given value and parent node
     def __init__ (self, value, parent):
         self.value = value
         self.parentNode = parent
-
+        if tuple(self.getPath()) in EVENSLIST:
+            self.isEven = True
+        else:
+            self.isEven = False
+        
     #returns the path that leads to a node as a list
     def getPath (self):
         if self.parentNode == None:
@@ -57,7 +62,7 @@ class visTree:
     def buildTree (self, startingWidth, height, previous):
         if height == 0:
             return
-        if previous != None and tuple(previous.getPath()) in EVENSLIST:
+        if previous != None and previous.isEven:
             return
         for i in reversed (range (1, startingWidth + 1)):
             temp = visNode(i, previous)
