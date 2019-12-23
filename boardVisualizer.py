@@ -1,9 +1,8 @@
 from classDefinitions import *
 from graphics import *
 
-import util
 #draws a given boardState (either a node or a list of numbers) in
-#a window of given width, height and give border on all 4 sides
+#a window of given width, height and given border on all 4 sides
 def drawBoard(inputState, width, height, border):
     win = GraphWin("board", width, height)
     if isinstance(inputState, visNode):
@@ -20,6 +19,8 @@ def drawBoard(inputState, width, height, border):
                              border + (row + 1) * SQUARE_WIDTH)
             rectTemp = Rectangle(pointOne, pointTwo)
             rectTemp.draw(win)
+
+
 
 
 drawBoard([5, 3, 3, 2, 2, 1], 1000, 1000 , 25)
